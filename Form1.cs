@@ -19,6 +19,7 @@ namespace IKAA_171RDB117_3
         public bool inverted = false;
         public int normalizePercentage = 0;
 
+        public int lastVerticalSegmentType = 0;
         public Form1()
         {
             InitializeComponent();
@@ -771,6 +772,122 @@ namespace IKAA_171RDB117_3
                 imgData.edgeSegmentation(3);
                 pictureBox2.Image = imgData.drawImage("Strech I");
             }
+        }
+
+        private void verticalSegment(String color, Color chartColor, int type, int threshold = 0, int threshold2 = 0)
+        {
+            trackBar2.Maximum = 255;
+            if (imgData.img != null)
+            {
+                imgData.histogramSegmentation(type, threshold, threshold2);
+
+                pictureBox2.Image = imgData.drawImage("Strech " + color);
+
+                if (threshold == 0)
+                {
+                    label14.Text = "Threshold: " + Convert.ToString(imgData.histEdited.calculateAutomaticThreshold(imgData.histEdited.hB));
+                }
+                chart2.Series.Clear();
+                chart2.Series.Add(color);
+                chart2.Series[color].Color = chartColor;
+                chart2.Series[color].Points.AddXY(imgData.histEdited.calculateAutomaticThreshold(imgData.histEdited.hB), 0);
+                chart2.Series[color].Points.AddXY(imgData.histEdited.calculateAutomaticThreshold(imgData.histEdited.hB), imgData.histEdited.hB[256]);
+
+            }
+        }
+
+        private void horizontalSegment(String color, Color chartColor, int type, int threshold = 0)
+        {
+            trackBar2.Maximum = 22000;
+            if (imgData.img != null)
+            {
+                imgData.histogramSegmentationHorizontal(type, threshold);
+
+                pictureBox2.Image = imgData.drawImage("Strech " + color);
+
+                chart2.Series.Clear();
+                chart2.Series.Add(color);
+                chart2.Series[color].Color = chartColor;
+                chart2.Series[color].Points.AddXY(imgData.histEdited.calculateAutomaticThreshold(imgData.histEdited.hB), 0);
+                chart2.Series[color].Points.AddXY(imgData.histEdited.calculateAutomaticThreshold(imgData.histEdited.hB), imgData.histEdited.hB[256]);
+
+            }
+        }
+        private void verticalAuto_I(object sender, EventArgs e)
+        {
+            this.verticalSegment("I", Color.Gray, 1);
+        }
+        private void verticalAuto_R(object sender, EventArgs e)
+        {
+            this.verticalSegment("R", Color.Red, 2);
+        }
+        private void verticalAuto_G(object sender, EventArgs e)
+        {
+            this.verticalSegment("G", Color.Green, 3);
+        }
+        private void verticalAuto_B(object sender, EventArgs e)
+        {
+            this.verticalSegment("B", Color.Blue, 4);
+        }
+ 
+        private void varticalManual_I(object sender, EventArgs e) { this.lastVerticalSegmentType = 1; this.trackBar2_Scroll(null, null); }
+        private void varticalManual_R(object sender, EventArgs e) { this.lastVerticalSegmentType = 2; this.trackBar2_Scroll(null, null); }
+        private void varticalManual_G(object sender, EventArgs e) { this.lastVerticalSegmentType = 3; this.trackBar2_Scroll(null, null); }
+        private void varticalManual_B(object sender, EventArgs e) { this.lastVerticalSegmentType = 4; this.trackBar2_Scroll(null, null); }
+
+        private void varticalManual2_I(object sender, EventArgs e) { this.lastVerticalSegmentType = 5; this.trackBar2_Scroll(null, null); }
+        private void varticalManual2_R(object sender, EventArgs e) { this.lastVerticalSegmentType = 6; this.trackBar2_Scroll(null, null); }
+        private void varticalManual2_G(object sender, EventArgs e) { this.lastVerticalSegmentType = 7; this.trackBar2_Scroll(null, null); }
+        private void varticalManual2_B(object sender, EventArgs e) { this.lastVerticalSegmentType = 8; this.trackBar2_Scroll(null, null); }
+
+        private void horizontalManual_I(object sender, EventArgs e) { this.lastVerticalSegmentType = 9; this.trackBar2_Scroll(null, null); }
+        private void horizontalManual_R(object sender, EventArgs e) { this.lastVerticalSegmentType = 10; this.trackBar2_Scroll(null, null); }
+        private void horizontalManual_G(object sender, EventArgs e) { this.lastVerticalSegmentType = 11; this.trackBar2_Scroll(null, null); }
+        private void horizontalManual_B(object sender, EventArgs e) { this.lastVerticalSegmentType = 12; this.trackBar2_Scroll(null, null); }
+
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            int scrollValue = trackBar2.Value;
+            int scrollValue2 = trackBar3.Value;
+            label14.Text = "Threshold: " + Convert.ToString(scrollValue);
+
+            if (scrollValue > trackBar3.Value && scrollValue <= 254)
+            {
+                trackBar3.Value = scrollValue2 = scrollValue + 1;
+                label15.Text = "Threshold: " + Convert.ToString(scrollValue2);
+            }
+
+            switch (this.lastVerticalSegmentType)
+            {
+                case 1: this.verticalSegment("I", Color.Gray, 1, scrollValue); break;
+                case 2: this.verticalSegment("R", Color.Red, 2, scrollValue); break;
+                case 3: this.verticalSegment("G", Color.Green, 3, scrollValue); break;
+                case 4: this.verticalSegment("B", Color.Blue, 4, scrollValue); break;
+
+                case 5: this.verticalSegment("I", Color.Gray, 1, scrollValue, scrollValue2); break;
+                case 6: this.verticalSegment("R", Color.Red, 2, scrollValue, scrollValue2); break;
+                case 7: this.verticalSegment("G", Color.Green, 3, scrollValue, scrollValue2); break;
+                case 8: this.verticalSegment("B", Color.Blue, 4, scrollValue, scrollValue2); break;
+
+                case 9: this.horizontalSegment("I", Color.Gray, 1, scrollValue); break;
+                case 10: this.horizontalSegment("R", Color.Red, 2, scrollValue); break;
+                case 11: this.horizontalSegment("G", Color.Green, 3, scrollValue); break;
+                case 12: this.horizontalSegment("B", Color.Blue, 4, scrollValue); break;
+
+            }
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            int scrollValue = trackBar3.Value;
+            label15.Text = "Threshold: " + Convert.ToString(scrollValue);
+
+            if (scrollValue < trackBar2.Value && scrollValue >= 1)
+            {
+                trackBar2.Value = scrollValue - 1;
+            }
+            this.trackBar2_Scroll(null, null);
         }
     }
 }

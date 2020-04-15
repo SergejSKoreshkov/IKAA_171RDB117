@@ -57,7 +57,7 @@ namespace IKAA_171RDB117_3
                         for (int fi = 0; fi < 3; fi++)
                         {
                             for (int fj = 0; fj < 3; fj++)
-                            { 
+                            {
                                 r += img[x + fi - 1, y + fj - 1].R * f.F[fi, fj];
                                 g += img[x + fi - 1, y + fj - 1].G * f.F[fi, fj];
                                 b += img[x + fi - 1, y + fj - 1].B * f.F[fi, fj];
@@ -85,7 +85,7 @@ namespace IKAA_171RDB117_3
             {
                 int[,] Sx;
                 int[,] Sy;
-                switch(type)
+                switch (type)
                 {
                     case 1:
                         Sx = new int[,] {
@@ -272,6 +272,90 @@ namespace IKAA_171RDB117_3
                 }
             }
         }
+
+        public void histogramSegmentation(int type = 1, int threshold = 0, int threshold2 = 0)
+        {
+            if (img != null)
+            {
+                int T = 0;
+                if (threshold == 0)
+                {
+                    switch (type)
+                    {
+                        case 1: T = histEdited.calculateAutomaticThreshold(histEdited.hI); break;
+                        case 2: T = histEdited.calculateAutomaticThreshold(histEdited.hR); break;
+                        case 3: T = histEdited.calculateAutomaticThreshold(histEdited.hG); break;
+                        case 4: T = histEdited.calculateAutomaticThreshold(histEdited.hB); break;
+                    }
+                } 
+                else
+                {
+                    T = threshold;
+                }
+                for (int x = 1; x < img.GetLength(0) - 1; x++)
+                {
+                    for (int y = 1; y < img.GetLength(1) - 1; y++)
+                    {
+                        switch (type)
+                        {
+                            case 1:
+                                if (img[x, y].I <= T) { imgChartRGB[x, y].I = 0; }
+                                else if (img[x, y].I > threshold2) { imgChartRGB[x, y].I = 255; }
+                                else { imgChartRGB[x, y].I = 128; }
+                                break;
+                            case 2:
+                                if (img[x, y].R <= T) { imgChartRGB[x, y].R = 0; }
+                                else if (img[x, y].R > threshold2) { imgChartRGB[x, y].R = 255; }
+                                else { imgChartRGB[x, y].R = 128; }
+                                break;
+                            case 3:
+                                if (img[x, y].G <= T) { imgChartRGB[x, y].G = 0; }
+                                else if (img[x, y].G > threshold2) { imgChartRGB[x, y].G = 255; }
+                                else { imgChartRGB[x, y].G = 128; }
+                                break;
+                            case 4:
+                                if (img[x, y].B <= T) { imgChartRGB[x, y].B = 0; }
+                                else if (img[x, y].B > threshold2) { imgChartRGB[x, y].B = 255; }
+                                else { imgChartRGB[x, y].B = 128; }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void histogramSegmentationHorizontal(int type = 1, int threshold = 0)
+        {
+            if (img != null)
+            {
+                for (int x = 1; x < img.GetLength(0) - 1; x++)
+                {
+                    for (int y = 1; y < img.GetLength(1) - 1; y++)
+                    {
+                        switch (type)
+                        {
+                            case 1:
+                                if (histOriginal.hI[img[x, y].I] <= threshold) { imgChartRGB[x, y].I = 0; }
+                                else { imgChartRGB[x, y].I = 255; }
+                                break;
+                            case 2:
+                                if (histOriginal.hR[img[x, y].R] <= threshold) { imgChartRGB[x, y].R = 0; }
+                                else { imgChartRGB[x, y].R = 255; }
+                                break;
+                            case 3:
+                                if (histOriginal.hG[img[x, y].G] <= threshold) { imgChartRGB[x, y].G = 0; }
+                                else { imgChartRGB[x, y].G = 255; }
+                                break;
+                            case 4:
+                                if (histOriginal.hB[img[x, y].B] <= threshold) { imgChartRGB[x, y].B = 0; }
+                                else { imgChartRGB[x, y].B = 255; }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
         public void readImage(Bitmap bmp)
         {
 
@@ -490,7 +574,7 @@ namespace IKAA_171RDB117_3
                                     line[3 * x] = img[x, y].cmykToRGB(imgcmyk[x, y].C, imgcmyk[x, y].M, imgcmyk[x, y].Y, imgcmyk[x, y].K).B;
                                     line[3 * x + 1] = img[x, y].cmykToRGB(imgcmyk[x, y].C, imgcmyk[x, y].M, imgcmyk[x, y].Y, imgcmyk[x, y].K).G;
                                     line[3 * x + 2] = img[x, y].cmykToRGB(imgcmyk[x, y].C, imgcmyk[x, y].M, imgcmyk[x, y].Y, imgcmyk[x, y].K).R;
-                                    imgChartCMYK[x, y] = new PixelClassCMYK(imgcmyk[x,y]);
+                                    imgChartCMYK[x, y] = new PixelClassCMYK(imgcmyk[x, y]);
                                     break;
                                 }
                             case "C":

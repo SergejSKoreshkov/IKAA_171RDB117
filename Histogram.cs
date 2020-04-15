@@ -405,5 +405,43 @@ namespace IKAA_171RDB117_3
                     break;
             }
         }
+
+        public int calculateAutomaticThreshold(int[] H)
+        {
+            int Dbegin = FindFirst(H, 0);
+            int Dend = FindLast(H, 0);
+            int T = (Dend - Dbegin) / 2;
+            int Tprevious = 0;
+            while (T != Tprevious)
+            {
+                Tprevious = T;
+                int m1 = 0;
+                int m2 = 0;
+                int p1 = 0;
+                int p2 = 0;
+
+                for (int i = Dbegin; i < T; i++)
+                {
+                    p1 += H[i];
+                    m1 += (i * H[i]);
+                }
+
+                if (p1 == 0) { p1 = 1; }
+                m1 /= p1;
+
+                for (int i = T; i <= Dend; i++)
+                {
+                    p2 += H[i];
+                    m2 += (i * H[i]);
+                }
+
+
+                if (p2 == 0) { p2 = 1; }
+                m2 /= p2;
+
+                T = (m1 + m2) / 2;
+            }
+            return T;
+        }
     }
 }
