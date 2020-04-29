@@ -889,5 +889,11 @@ namespace IKAA_171RDB117_3
             }
             this.trackBar2_Scroll(null, null);
         }
+
+        private void transitionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 openForm = new Form2();
+            openForm.Show();
+        }
     }
 }

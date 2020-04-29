@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -134,6 +134,7 @@
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.transitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -436,32 +437,32 @@
             // 
             // chart1
             // 
-            chartArea19.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea19);
-            legend19.Name = "Legend1";
-            this.chart1.Legends.Add(legend19);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 419);
             this.chart1.Name = "chart1";
-            series19.ChartArea = "ChartArea1";
-            series19.Legend = "Legend1";
-            series19.Name = "Series1";
-            this.chart1.Series.Add(series19);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(526, 254);
             this.chart1.TabIndex = 19;
             this.chart1.Text = "chart1";
             // 
             // chart2
             // 
-            chartArea20.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea20);
-            legend20.Name = "Legend1";
-            this.chart2.Legends.Add(legend20);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(544, 470);
             this.chart2.Name = "chart2";
-            series20.ChartArea = "ChartArea1";
-            series20.Legend = "Legend1";
-            series20.Name = "Series1";
-            this.chart2.Series.Add(series20);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(526, 203);
             this.chart2.TabIndex = 20;
             this.chart2.Text = "chart2";
@@ -472,7 +473,8 @@
             this.fileToolStripMenuItem,
             this.histogramToolStripMenuItem,
             this.filtersToolStripMenuItem,
-            this.segmentationToolStripMenuItem});
+            this.segmentationToolStripMenuItem,
+            this.transitionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1285, 24);
@@ -643,7 +645,7 @@
             this.bToolStripMenuItem,
             this.iToolStripMenuItem});
             this.sobel3x3ToolStripMenuItem.Name = "sobel3x3ToolStripMenuItem";
-            this.sobel3x3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobel3x3ToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.sobel3x3ToolStripMenuItem.Text = "Sobel (3x3)";
             // 
             // rGBToolStripMenuItem
@@ -690,7 +692,7 @@
             this.bToolStripMenuItem1,
             this.iToolStripMenuItem1});
             this.robertsToolStripMenuItem.Name = "robertsToolStripMenuItem";
-            this.robertsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.robertsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.robertsToolStripMenuItem.Text = "Roberts (2x2)";
             // 
             // rGBToolStripMenuItem1
@@ -737,7 +739,7 @@
             this.bToolStripMenuItem2,
             this.iToolStripMenuItem2});
             this.prewitt3x3ToolStripMenuItem.Name = "prewitt3x3ToolStripMenuItem";
-            this.prewitt3x3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prewitt3x3ToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.prewitt3x3ToolStripMenuItem.Text = "Prewitt (3x3)";
             // 
             // rGBToolStripMenuItem2
@@ -789,28 +791,28 @@
             // rToolStripMenuItem3
             // 
             this.rToolStripMenuItem3.Name = "rToolStripMenuItem3";
-            this.rToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem3.Size = new System.Drawing.Size(82, 22);
             this.rToolStripMenuItem3.Text = "R";
             this.rToolStripMenuItem3.Click += new System.EventHandler(this.verticalAuto_R);
             // 
             // gToolStripMenuItem3
             // 
             this.gToolStripMenuItem3.Name = "gToolStripMenuItem3";
-            this.gToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem3.Size = new System.Drawing.Size(82, 22);
             this.gToolStripMenuItem3.Text = "G";
             this.gToolStripMenuItem3.Click += new System.EventHandler(this.verticalAuto_G);
             // 
             // bToolStripMenuItem3
             // 
             this.bToolStripMenuItem3.Name = "bToolStripMenuItem3";
-            this.bToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem3.Size = new System.Drawing.Size(82, 22);
             this.bToolStripMenuItem3.Text = "B";
             this.bToolStripMenuItem3.Click += new System.EventHandler(this.verticalAuto_B);
             // 
             // iToolStripMenuItem3
             // 
             this.iToolStripMenuItem3.Name = "iToolStripMenuItem3";
-            this.iToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.iToolStripMenuItem3.Size = new System.Drawing.Size(82, 22);
             this.iToolStripMenuItem3.Text = "I";
             this.iToolStripMenuItem3.Click += new System.EventHandler(this.verticalAuto_I);
             // 
@@ -828,28 +830,28 @@
             // rToolStripMenuItem4
             // 
             this.rToolStripMenuItem4.Name = "rToolStripMenuItem4";
-            this.rToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem4.Size = new System.Drawing.Size(82, 22);
             this.rToolStripMenuItem4.Text = "R";
             this.rToolStripMenuItem4.Click += new System.EventHandler(this.varticalManual_R);
             // 
             // gToolStripMenuItem4
             // 
             this.gToolStripMenuItem4.Name = "gToolStripMenuItem4";
-            this.gToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem4.Size = new System.Drawing.Size(82, 22);
             this.gToolStripMenuItem4.Text = "G";
             this.gToolStripMenuItem4.Click += new System.EventHandler(this.varticalManual_G);
             // 
             // bToolStripMenuItem4
             // 
             this.bToolStripMenuItem4.Name = "bToolStripMenuItem4";
-            this.bToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem4.Size = new System.Drawing.Size(82, 22);
             this.bToolStripMenuItem4.Text = "B";
             this.bToolStripMenuItem4.Click += new System.EventHandler(this.varticalManual_B);
             // 
             // iToolStripMenuItem4
             // 
             this.iToolStripMenuItem4.Name = "iToolStripMenuItem4";
-            this.iToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.iToolStripMenuItem4.Size = new System.Drawing.Size(82, 22);
             this.iToolStripMenuItem4.Text = "I";
             this.iToolStripMenuItem4.Click += new System.EventHandler(this.varticalManual_I);
             // 
@@ -867,28 +869,28 @@
             // rToolStripMenuItem5
             // 
             this.rToolStripMenuItem5.Name = "rToolStripMenuItem5";
-            this.rToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem5.Size = new System.Drawing.Size(82, 22);
             this.rToolStripMenuItem5.Text = "R";
             this.rToolStripMenuItem5.Click += new System.EventHandler(this.horizontalManual_R);
             // 
             // gToolStripMenuItem5
             // 
             this.gToolStripMenuItem5.Name = "gToolStripMenuItem5";
-            this.gToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem5.Size = new System.Drawing.Size(82, 22);
             this.gToolStripMenuItem5.Text = "G";
             this.gToolStripMenuItem5.Click += new System.EventHandler(this.horizontalManual_G);
             // 
             // bToolStripMenuItem5
             // 
             this.bToolStripMenuItem5.Name = "bToolStripMenuItem5";
-            this.bToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem5.Size = new System.Drawing.Size(82, 22);
             this.bToolStripMenuItem5.Text = "B";
             this.bToolStripMenuItem5.Click += new System.EventHandler(this.horizontalManual_B);
             // 
             // iToolStripMenuItem5
             // 
             this.iToolStripMenuItem5.Name = "iToolStripMenuItem5";
-            this.iToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.iToolStripMenuItem5.Size = new System.Drawing.Size(82, 22);
             this.iToolStripMenuItem5.Text = "I";
             this.iToolStripMenuItem5.Click += new System.EventHandler(this.horizontalManual_I);
             // 
@@ -906,28 +908,28 @@
             // rToolStripMenuItem6
             // 
             this.rToolStripMenuItem6.Name = "rToolStripMenuItem6";
-            this.rToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem6.Size = new System.Drawing.Size(82, 22);
             this.rToolStripMenuItem6.Text = "R";
             this.rToolStripMenuItem6.Click += new System.EventHandler(this.varticalManual2_R);
             // 
             // gToolStripMenuItem6
             // 
             this.gToolStripMenuItem6.Name = "gToolStripMenuItem6";
-            this.gToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem6.Size = new System.Drawing.Size(82, 22);
             this.gToolStripMenuItem6.Text = "G";
             this.gToolStripMenuItem6.Click += new System.EventHandler(this.varticalManual2_G);
             // 
             // bToolStripMenuItem6
             // 
             this.bToolStripMenuItem6.Name = "bToolStripMenuItem6";
-            this.bToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem6.Size = new System.Drawing.Size(82, 22);
             this.bToolStripMenuItem6.Text = "B";
             this.bToolStripMenuItem6.Click += new System.EventHandler(this.varticalManual2_B);
             // 
             // iToolStripMenuItem6
             // 
             this.iToolStripMenuItem6.Name = "iToolStripMenuItem6";
-            this.iToolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.iToolStripMenuItem6.Size = new System.Drawing.Size(82, 22);
             this.iToolStripMenuItem6.Text = "I";
             this.iToolStripMenuItem6.Click += new System.EventHandler(this.varticalManual2_I);
             // 
@@ -1020,6 +1022,13 @@
             this.label15.Size = new System.Drawing.Size(24, 13);
             this.label15.TabIndex = 30;
             this.label15.Text = "0 %";
+            // 
+            // transitionsToolStripMenuItem
+            // 
+            this.transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
+            this.transitionsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.transitionsToolStripMenuItem.Text = "Transitions";
+            this.transitionsToolStripMenuItem.Click += new System.EventHandler(this.transitionsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1179,6 +1188,7 @@
         private System.Windows.Forms.TrackBar trackBar3;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ToolStripMenuItem transitionsToolStripMenuItem;
     }
 }
 

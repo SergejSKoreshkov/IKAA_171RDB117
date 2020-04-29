@@ -27,3 +27,4 @@ C:\Users\Serge\Desktop\IKAA_171RDB117_4\IKAA_171RDB117_3\obj\Debug\IKAA_171RDB11
 C:\Users\Serge\Desktop\IKAA_171RDB117_4\IKAA_171RDB117_3\obj\Debug\IKAA_171RDB117_3.Form1.resources
 C:\Users\Serge\Desktop\IKAA_171RDB117_4\IKAA_171RDB117_3\obj\Debug\IKAA_171RDB117_3.Properties.Resources.resources
 C:\Users\Serge\Desktop\IKAA_171RDB117_4\IKAA_171RDB117_3\obj\Debug\IKAA_171RDB117_3.csproj.GenerateResource.cache
+C:\Users\Serge\Desktop\IKAA_171RDB117_4\IKAA_171RDB117_3\obj\Debug\IKAA_171RDB117_3.Form2.resources

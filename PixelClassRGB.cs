@@ -108,5 +108,117 @@ namespace IKAA_171RDB117_3
 
         }
 
+        public void effectOpacity(PixelClassRGB a, PixelClassRGB b, double d)
+        {
+            R = Convert.ToByte(d * a.R + (1 - d) * b.R);
+            G = Convert.ToByte(d * a.G + (1 - d) * b.G);
+            B = Convert.ToByte(d * a.B + (1 - d) * b.B);
+        }
+
+        public void effectScreen(PixelClassRGB a, PixelClassRGB b)
+        {
+            double theFirst = (double)a.R / 255;
+            double theSecond = (double)b.R / 255;
+
+            R = Convert.ToByte((1 - (1 - theFirst) * (1 - theSecond)) * 255);
+
+            theFirst = (double)a.G / 255;
+            theSecond = (double)b.G / 255;
+
+            G = Convert.ToByte((1 - (1 - theFirst) * (1 - theSecond)) * 255);
+
+            theFirst = (double)a.B / 255;
+            theSecond = (double)b.B / 255;
+
+            B = Convert.ToByte((1 - (1 - theFirst) * (1 - theSecond)) * 255);
+        }
+
+        public void effectDarken(PixelClassRGB a, PixelClassRGB b)
+        {
+            R = b.R <= a.R ? b.R : a.R;
+            G = b.G <= a.G ? b.G : a.G;
+            B = b.B <= a.B ? b.B : a.B;
+        }
+
+        public void effectLighten(PixelClassRGB a, PixelClassRGB b)
+        {
+            R = b.R <= a.R ? a.R : b.R;
+            G = b.G <= a.G ? a.G : b.G;
+            B = b.B <= a.B ? a.B : b.B;
+        }
+
+        public void effectMultiply (PixelClassRGB a, PixelClassRGB b)
+        {
+            R = Convert.ToByte((double)(a.R / 255.0 * b.R / 255.0 * 255.0));
+            G = Convert.ToByte((double)(a.G / 255.0 * b.G / 255.0 * 255.0));
+            B = Convert.ToByte((double)(a.B / 255.0 * b.B / 255.0 * 255.0));
+        }
+
+        public void effectBurn(PixelClassRGB a, PixelClassRGB b)
+        {
+            double rA = (double)(a.R / 255.0) <= 0 ? 1 : (double)(a.R / 255.0);
+            double gA = (double)(a.G / 255.0) <= 0 ? 1 : (double)(a.G / 255.0);
+            double bA = (double)(a.B / 255.0) <= 0 ? 1 : (double)(a.B / 255.0);
+
+            double rB = (double)(b.R / 255.0);
+            double gB = (double)(b.R / 255.0);
+            double bB = (double)(b.R / 255.0);
+
+            R = Convert.ToByte(Math.Max(Math.Min((1 - (1 - rB) / rA) * 255.0, 255), 0));
+            G = Convert.ToByte(Math.Max(Math.Min((1 - (1 - gB) / gA) * 255.0, 255), 0));
+            B = Convert.ToByte(Math.Max(Math.Min((1 - (1 - bB) / bA) * 255.0, 255), 0));
+        }
+
+        public void effectDodge(PixelClassRGB a, PixelClassRGB b)
+        {
+            double rA = a.R / 255.0 == 1 ? 0 : a.R / 255.0;
+            double gA = a.G / 255.0 == 1 ? 0 : a.G / 255.0;
+            double bA = a.B / 255.0 == 1 ? 0 : a.B / 255.0;
+
+            R = Convert.ToByte(Math.Max(Math.Min(((b.R / 255.0) / (1 - rA)) * 255.0, 255), 0));
+            G = Convert.ToByte(Math.Max(Math.Min(((b.G / 255.0) / (1 - gA)) * 255.0, 255), 0));
+            B = Convert.ToByte(Math.Max(Math.Min(((b.B / 255.0) / (1 - bA)) * 255.0, 255), 0));
+        }
+
+        public void effectOverlay(PixelClassRGB a, PixelClassRGB b)
+        {
+            R = Convert.ToByte((double)(b.R / 255.0) <= 0.5 ? (2 * (a.R / 255.0) * (b.R / 255.0) * 255.0) : ((1 - 2 * (1 - a.R/255.0)*(1 - b.R/255.0)) * 255.0));
+            G = Convert.ToByte((double)(b.G / 255.0) <= 0.5 ? (2 * (a.G / 255.0) * (b.G / 255.0) * 255.0) : ((1 - 2 * (1 - a.G/255.0)*(1 - b.G/255.0)) * 255.0));
+            B = Convert.ToByte((double)(b.B / 255.0) <= 0.5 ? (2 * (a.B / 255.0) * (b.B / 255.0) * 255.0) : ((1 - 2 * (1 - a.B/255.0)*(1 - b.B/255.0)) * 255.0));
+        }
+
+        public void effectHardLight(PixelClassRGB a, PixelClassRGB b)
+        {
+            R = Convert.ToByte((double)(a.R / 255.0) <= 0.5 ? (2 * (a.R / 255.0) * (b.R / 255.0) * 255.0) : ((1 - 2 * (1 - a.R / 255.0) * (1 - b.R / 255.0)) * 255.0));
+            G = Convert.ToByte((double)(a.G / 255.0) <= 0.5 ? (2 * (a.G / 255.0) * (b.G / 255.0) * 255.0) : ((1 - 2 * (1 - a.G / 255.0) * (1 - b.G / 255.0)) * 255.0));
+            B = Convert.ToByte((double)(a.B / 255.0) <= 0.5 ? (2 * (a.B / 255.0) * (b.B / 255.0) * 255.0) : ((1 - 2 * (1 - a.B / 255.0) * (1 - b.B / 255.0)) * 255.0));
+        }
+
+        public void effectDiff(PixelClassRGB a, PixelClassRGB b)
+        {
+            R = Convert.ToByte(Math.Abs(a.R - b.R));
+            G = Convert.ToByte(Math.Abs(a.G - b.G));
+            B = Convert.ToByte(Math.Abs(a.B - b.B));
+        }
+
+        public void effectLinearDodge(PixelClassRGB a, PixelClassRGB b)
+        {
+            int r = a.R + b.R;
+            if (r > 255) { r = 255; }
+            if (r < 0) { r = 0; }
+
+            int g = a.G + b.G;
+            if (g > 255) { g = 255; }
+            if (g < 0) { g = 0; }
+
+            int bl = a.B + b.B;
+            if (bl > 255) { bl = 255; }
+            if (bl < 0) { bl = 0; }
+
+            R = (byte)r;
+            G = (byte)g;
+            B = (byte)bl;
+        }
+
     }
 }

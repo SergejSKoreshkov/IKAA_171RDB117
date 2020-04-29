@@ -495,6 +495,13 @@ namespace IKAA_171RDB117_3
                                     line[3 * x + 2] = imgChartRGB[x, y].R;
                                     break;
                                 }
+                            case "transition":
+                                {
+                                    line[3 * x] = img[x, y].B;
+                                    line[3 * x + 1] = img[x, y].G;
+                                    line[3 * x + 2] = img[x, y].R;
+                                    break;
+                                }
                             case "Strech R":
                                 {
                                     line[3 * x] = 0;
