@@ -124,6 +124,7 @@
             this.gToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.bToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.iToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -134,7 +135,7 @@
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.transitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -474,7 +475,8 @@
             this.histogramToolStripMenuItem,
             this.filtersToolStripMenuItem,
             this.segmentationToolStripMenuItem,
-            this.transitionsToolStripMenuItem});
+            this.transitionsToolStripMenuItem,
+            this.transformationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1285, 24);
@@ -933,6 +935,13 @@
             this.iToolStripMenuItem6.Text = "I";
             this.iToolStripMenuItem6.Click += new System.EventHandler(this.varticalManual2_I);
             // 
+            // transitionsToolStripMenuItem
+            // 
+            this.transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
+            this.transitionsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.transitionsToolStripMenuItem.Text = "Transitions";
+            this.transitionsToolStripMenuItem.Click += new System.EventHandler(this.transitionsToolStripMenuItem_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -1023,12 +1032,12 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "0 %";
             // 
-            // transitionsToolStripMenuItem
+            // transformationToolStripMenuItem
             // 
-            this.transitionsToolStripMenuItem.Name = "transitionsToolStripMenuItem";
-            this.transitionsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.transitionsToolStripMenuItem.Text = "Transitions";
-            this.transitionsToolStripMenuItem.Click += new System.EventHandler(this.transitionsToolStripMenuItem_Click);
+            this.transformationToolStripMenuItem.Name = "transformationToolStripMenuItem";
+            this.transformationToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.transformationToolStripMenuItem.Text = "Transformation";
+            this.transformationToolStripMenuItem.Click += new System.EventHandler(this.transformationToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1189,6 +1198,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ToolStripMenuItem transitionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transformationToolStripMenuItem;
     }
 }
 

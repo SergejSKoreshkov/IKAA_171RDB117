@@ -26,6 +26,9 @@ namespace IKAA_171RDB117_3
 
         public Filter filter;
 
+        public int x0;
+        public int y0;
+
         ~imgData()
         {
             img = null;
@@ -401,6 +404,9 @@ namespace IKAA_171RDB117_3
                     imgChartRGB[x, y] = new PixelClassRGB(line[pixelComponents * x + 2], line[pixelComponents * x + 1], line[pixelComponents * x]);
                     imgChartYUV[x, y] = new PixelClassYUV(img[x, y].R, img[x, y].G, img[x, y].B);
                     imgChartHSV[x, y] = new PixelClassHSV(img[x, y].R, img[x, y].G, img[x, y].B);
+
+                    img[x, y].X = x - bmpData.Width / 2;
+                    img[x, y].Y = y - bmpData.Height / 2;
                 }
             }
             bmp.UnlockBits(bmpData);
@@ -425,6 +431,22 @@ namespace IKAA_171RDB117_3
                     {
                         switch (mode)
                         {
+                            case "transformation":
+                                {
+                                    if (((img[x, y].X + x0) > 0) && ((img[x, y].Y + y0) > 0) &&
+                                        (((img[x, y].X + x0) < bmpData.Width) && ((img[x, y].Y + y0) < bmpData.Height)))
+                                    {
+                                        line[3 * x + 2] = img[img[x, y].X + x0, y0 + img[x, y].Y].R;
+                                        line[3 * x + 1] = img[img[x, y].X + x0, y0 + img[x, y].Y].G;
+                                        line[3 * x] = img[img[x, y].X + x0, y0 + img[x, y].Y].B;
+                                    } else
+                                    {
+                                        line[3 * x + 2] = 0;
+                                        line[3 * x + 1] = 0;
+                                        line[3 * x ] = 0;
+                                    }
+                                    break;
+                                }
                             case "RGB":
                                 {
                                     line[3 * x] = img[x, y].B;

@@ -13,6 +13,8 @@ namespace IKAA_171RDB117_3
         public byte G;
         public byte B;
         public byte I;
+        public int X;
+        public int Y;
 
         public PixelClassRGB()
         {
